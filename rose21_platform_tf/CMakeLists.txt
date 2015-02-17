@@ -5,7 +5,7 @@ find_package(catkin REQUIRED COMPONENTS
 		geometry_msgs
 		nav_msgs
 		roscpp
-		rose21_base
+		odometry
 		rose_base_msgs
 		rose_common
 		rose_transformations
@@ -21,7 +21,7 @@ catkin_package(
 		geometry_msgs
 		nav_msgs
 		roscpp
-		rose21_base
+		odometry
 		rose_base_msgs
 		rose_common
 		rose_transformations
