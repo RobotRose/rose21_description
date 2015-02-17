@@ -20,6 +20,8 @@ catkin_package(
 
 )
 
+include_directories( include ${catkin_INCLUDE_DIRS} )
+
 add_executable( rose21_arm_tf 	
 					src/arm_tf_node.cpp
 )

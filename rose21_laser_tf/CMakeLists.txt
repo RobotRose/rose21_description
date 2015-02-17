@@ -23,7 +23,8 @@ catkin_package(
 add_executable( rose21_laser_tf 	
 					src/laser_tf_node.cpp
 )
-						
+
+include_directories( include ${catkin_INCLUDE_DIRS} )						
 
 add_dependencies( rose21_laser_tf ${catkin_EXPORTED_TARGETS} ${PROJECT_NAME}_generate_messages_cpp)
 

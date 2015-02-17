@@ -30,6 +30,8 @@ catkin_package(
 
 )
 
+include_directories( include ${catkin_INCLUDE_DIRS} )
+
 add_executable( rose21_platform_tf 	
 					src/platform_tf_node.cpp
 					src/platform_tf.cpp

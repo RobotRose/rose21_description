@@ -20,6 +20,8 @@ catkin_package(
 
 )
 
+include_directories( include ${catkin_INCLUDE_DIRS} )
+
 add_executable( rose21_lift_tf 	
 					src/lift_tf_node.cpp
 					src/lift_tf.cpp

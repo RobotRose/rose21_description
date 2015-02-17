@@ -20,6 +20,8 @@ catkin_package(
 
 )
 
+include_directories( include ${catkin_INCLUDE_DIRS} )
+
 add_executable( rose21_neck_tf 	
 					src/neck_tf_node.cpp
 					src/neck_tf.cpp
