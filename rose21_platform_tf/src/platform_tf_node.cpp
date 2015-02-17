@@ -12,7 +12,7 @@
 * 
 ***********************************************************************************/
 
-#include "platform/platform_tf_node.hpp"
+#include "rose21_platform_tf/platform_tf_node.hpp"
 
 using namespace std;
 
