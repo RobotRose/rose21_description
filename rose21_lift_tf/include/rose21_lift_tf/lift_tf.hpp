@@ -20,7 +20,7 @@
 
 #include "tf_helper/tf_helper.hpp"
  
-#include "rose21_platform/lift_state.h"
+#include "rose_base_msgs/lift_state.h"
 
 using std::string;
 
