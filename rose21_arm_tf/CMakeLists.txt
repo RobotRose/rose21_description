@@ -3,6 +3,7 @@ project(rose21_arm_tf)
 
 find_package(catkin REQUIRED COMPONENTS
 	roscpp
+	rose_common
 	rose_transformations
 	)
 
@@ -12,7 +13,8 @@ catkin_package(
  LIBRARIES 
 
  CATKIN_DEPENDS 
- 	roscpp
+	roscpp
+	rose_common
 	rose_transformations
  DEPENDS 
 
