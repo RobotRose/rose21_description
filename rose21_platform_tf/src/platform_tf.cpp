@@ -63,7 +63,7 @@ const geometry_msgs::Twist& TFPlatform::getVelocity()
 }
 
 
-void TFPlatform::CB_WheelUnitStates(const rose21_platform::wheelunit_states::ConstPtr& wheelunit_states)
+void TFPlatform::CB_WheelUnitStates(const rose_base_msgs::wheelunit_states::ConstPtr& wheelunit_states)
 {
 	// Transfer data to the newly created wheel units 
     wheelunits_map_.at("FR").measured_rotation_ 			= wheelunit_states->angle_FR;

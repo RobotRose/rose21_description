@@ -34,7 +34,7 @@
 #include "odometry/odometry.hpp"
 #include "tf_helper/tf_helper.hpp"
 
-#include "rose21_platform/wheelunit_states.h"
+#include "rose_base_msgs/wheelunit_states.h"
 
 using namespace std;
 
@@ -44,7 +44,7 @@ class TFPlatform : public TFHelper
     TFPlatform(string transform_name, ros::NodeHandle n, string from_link, string to_link);
     ~TFPlatform();
 
-    void CB_WheelUnitStates(const rose21_platform::wheelunit_states::ConstPtr& wheelunit_states);
+    void CB_WheelUnitStates(const rose_base_msgs::wheelunit_states::ConstPtr& wheelunit_states);
     
     void publishOdometry();
     map<string, WheelUnit>& getWheelUnits();

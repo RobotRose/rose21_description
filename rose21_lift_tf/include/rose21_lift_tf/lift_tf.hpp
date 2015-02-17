@@ -31,7 +31,7 @@ class TFLift : public TFHelper
     ~TFLift();
 
   private:
-    void CB_LiftStateChanged(const rose21_platform::lift_state::ConstPtr& lift_message);
+    void CB_LiftStateChanged(const rose_base_msgs::lift_state::ConstPtr& lift_message);
     void setLiftTransform(int pose);
 
     ros::Subscriber lift_status_sub_;

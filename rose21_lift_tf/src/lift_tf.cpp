@@ -28,7 +28,7 @@ TFLift::~TFLift()
 {
 }
 
-void TFLift::CB_LiftStateChanged(const rose21_platform::lift_state::ConstPtr& lift_message)
+void TFLift::CB_LiftStateChanged(const rose_base_msgs::lift_state::ConstPtr& lift_message)
 {
     ROS_DEBUG_NAMED(ROS_NAME, "Lift position changed, updating transform: %d%%.", lift_message->position_percentage);
 
