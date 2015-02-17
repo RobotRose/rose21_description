@@ -2,8 +2,9 @@ cmake_minimum_required(VERSION 2.8.3)
 project(rose21_neck_tf)
 
 find_package(catkin REQUIRED COMPONENTS
-	roscpp
-	rose_transformations
+		dynamixel_msgs
+		roscpp
+		rose_transformations
 	)
 
 catkin_package(
@@ -12,8 +13,9 @@ catkin_package(
  LIBRARIES 
 
  CATKIN_DEPENDS 
- 	roscpp
-	rose_transformations
+		dynamixel_msgs
+		roscpp
+		rose_transformations
  DEPENDS 
 
 )
