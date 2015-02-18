@@ -20,6 +20,8 @@ catkin_package(
 
 )
 
+set(CMAKE_CXX_FLAGS "-std=c++0x -g") #! @todo OH [IMPR]: Remove -g flag in release?
+
 add_executable( rose21_laser_tf 	
 					src/laser_tf_node.cpp
 )

@@ -10,7 +10,7 @@
 *   Neck tf node, created from the construction paintings of the robot
 * 
 ***********************************************************************************/
-#include "neck/neck_tf_node.hpp"
+#include "rose21_neck_tf/neck_tf_node.hpp"
 
 int main(int argc, char** argv)
 {

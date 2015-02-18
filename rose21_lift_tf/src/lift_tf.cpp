@@ -11,7 +11,7 @@
 *   transforms accordingly.
 * 
 ***********************************************************************************/
-#include "rose21_lift_controller/lift_tf.hpp"
+#include "rose21_lift_tf/lift_tf.hpp"
 
 TFLift::TFLift(string transform_name, ros::NodeHandle n, string from_link, string to_link)
     : TFHelper(transform_name, n, from_link, to_link)

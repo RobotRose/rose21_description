@@ -17,7 +17,7 @@
 #include <iostream>
 #include <stdio.h>
 
-#include "platform/platform_tf.hpp"
+#include "rose21_platform_tf/platform_tf.hpp"
 
 using namespace std;
 
