@@ -19,8 +19,8 @@ TFPlatform::TFPlatform(string transform_name, ros::NodeHandle n, string from_lin
     : TFHelper(transform_name, n, from_link, to_link)
 {
 	odom_pub_ 				= n.advertise<nav_msgs::Odometry>("/odom", 50);	
-    wheelunit_states_sub_ 	= n_.subscribe("/wheel_controller/wheelunit_states", 50, &TFPlatform::CB_WheelUnitStates, this);
-    ROS_INFO_NAMED(transform_name_, "'%s' has subscribed to /wheel_controller/wheelunit_states", transform_name_.c_str());
+    wheelunit_states_sub_ 	= n_.subscribe("/platform_controller/wheelunit_states", 50, &TFPlatform::CB_WheelUnitStates, this);
+    ROS_INFO_NAMED(transform_name_, "'%s' has subscribed to /platform_controller/wheelunit_states", transform_name_.c_str());
 
     // Create the wheelunits and add them to a map for easier access later on
 	WheelUnit wheel_unit_FL("FR", 0);
