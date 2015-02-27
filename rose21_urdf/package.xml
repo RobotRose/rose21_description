@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package>
+  <name>rose21_urdf</name>
+  <version>0.0.0</version>
+  <description>The rose21_urdf package</description>
+  <maintainer email="beek@robot-rose.nl">Loy van Beek</maintainer>
+  <license>TODO</license>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>tf</run_depend>
+</package>
