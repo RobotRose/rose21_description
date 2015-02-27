@@ -13,6 +13,11 @@
   </visual>
 </link>
 
+<joint name="lift_bottom" type="fixed">
+  <parent link="base_link"/>
+  <child link="lift_link"/>
+</joint>
+
 <link name="lift_link">
   <visual>
     <origin xyz="0 0 0.24" rpy="0 0 0" />
@@ -25,8 +30,20 @@
   </visual>
 </link>
 
- <joint name="lift_bottom" type="fixed">
-    <parent link="base_link"/>
-    <child link="lift_link"/>
-  </joint>
+<joint name="neck_pan_joint" type="fixed">
+  <parent link="lift_link"/>
+  <child link="neck_pan"/>
+</joint>
+
+<link name="neck_pan">
+  <visual>
+    <origin xyz="0.149 0 0" rpy="0 0 0" />
+    <geometry>
+      <box size="0.298 0.04 0.02" />
+    </geometry>
+    <material name="black">
+      <color rgba=".1 .1 .1 1" />
+    </material>
+  </visual>
+</link>
 </robot>
