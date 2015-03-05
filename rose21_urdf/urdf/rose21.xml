@@ -46,4 +46,21 @@
     </material>
   </visual>
 </link>
+
+<joint name="neck_tilt_joint" type="fixed">
+  <parent link="neck_pan"/>
+  <child link="camera_center_link"/>
+</joint>
+
+<link name="camera_center_link">
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <box size="0.06 0.28 0.04" />
+    </geometry>
+    <material name="black">
+      <color rgba=".1 .1 .1 1" />
+    </material>
+  </visual>
+</link>
 </robot>
