@@ -63,4 +63,22 @@
     </material>
   </visual>
 </link>
+
+<joint name="laser_fix_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="laser"/>
+</joint>
+
+<link name="laser">
+  <!--See https://www.hokuyo-aut.jp/02sensor/07scanner/ubg_04lx_f01.html-->
+  <visual>
+    <origin xyz="-0.0125 0 -0.0166" rpy="0 0 0" />
+    <geometry>
+      <box size="0.075 0.06 0.06" />
+    </geometry>
+    <material name="darkblue">
+      <color rgba="0.26, 0.329, 0.714 1" /> <!-- R: 69 G: 75 B: 101 -->
+    </material>
+  </visual>
+</link>
 </robot>
