@@ -27,7 +27,7 @@ int main(int argc, char** argv)
     TFHelper* tf_laser = new TFHelper(TRANSFORM_NAME, n, "/base_link", "/laser");
     
     //X = Half the length of the base + the distance from the front of the base to the centerpoint of the laser. = (0.76 / 2) + 0.055
-    tf_laser->setTransform(tf::createQuaternionFromRPY(0.0, 0.0, 0.0), tf::Vector3((0.76/2)+0.055, 0.0, 0.0));     
+    tf_laser->setTransform(tf::createQuaternionFromRPY(0.0, 0.0, 0.0), tf::Vector3((0.76/2)+0.055, 0.0, 0.186));     
 
     // Keep on spinnin
     while(n.ok())
