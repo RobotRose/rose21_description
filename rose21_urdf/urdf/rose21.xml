@@ -5,7 +5,7 @@
   <visual>
     <origin xyz="0 0 0.135" rpy="0 0 0" />
     <geometry>
-      <box size="0.8 0.6 0.27" />
+      <box size="0.79 0.6 0.26" />
     </geometry>
     <material name="ral9010">
       <color rgba=".8 .8 .8 1" />
