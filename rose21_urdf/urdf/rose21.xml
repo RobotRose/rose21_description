@@ -22,7 +22,7 @@
 <!--  <visual>
     <origin xyz="0 0 0.24" rpy="0 0 0" />
     <geometry>
-      <box size="0.29 0.24 0.48" />
+       <mesh filename="file:///home/osch/github/rose/rose/src/rose21_description/rose21_urdf/meshes/lift_link.dae" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="ral9010">
       <color rgba=".8 .8 .8 1" />
