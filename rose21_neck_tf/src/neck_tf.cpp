@@ -22,7 +22,7 @@ TFNeck::TFNeck(string name, ros::NodeHandle n)
     tf_tilt_mount_    = new TFHelper("neck_tilt_mount",    n, "/neck_pan",           "/neck_tilt_mount");
     tf_tilt_rotation_ = new TFHelper("neck_tilt",          n, "/neck_tilt_mount",    "/neck_tilt");
     tf_camera_center_ = new TFHelper("neck_camera_center", n, "/neck_tilt",          "/camera_center_link");
-    tf_camera_        = new TFHelper("neck_camera",        n, "/camera_center_link", "/camera_link");
+    tf_camera_        = new TFHelper("neck_camera",        n, "/camera_center_link", "/rose/camera_link");
 
     double pan_mount_x;
     double pan_mount_y;

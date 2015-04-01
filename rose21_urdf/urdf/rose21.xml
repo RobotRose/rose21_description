@@ -64,6 +64,23 @@
   </visual>
 </link>
 
+<joint name="kinect_fix" type="fixed">
+  <parent link="camera_center_link"/>
+  <child link="camera_rgb_optical_frame"/>
+</joint>
+
+<link name="camera_rgb_optical_frame">
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <box size="0 0 0" />
+    </geometry>
+    <material name="black">
+      <color rgba=".1 .1 .1 1" />
+    </material>
+  </visual>
+</link>
+
 <joint name="laser_fix_joint" type="fixed">
   <parent link="base_link"/>
   <child link="laser"/>
