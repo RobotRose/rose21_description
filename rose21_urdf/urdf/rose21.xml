@@ -47,12 +47,63 @@
   </visual>
 </link>
 
-<joint name="neck_tilt_joint" type="fixed">
+<joint name="link0" type="fixed">
   <parent link="neck_pan"/>
+  <child link="neck_tilt_mount"/>
+</joint>
+
+<link name="neck_tilt_mount">
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <box size="0 0 0" />
+    </geometry>
+    <material name="black">
+      <color rgba=".1 .1 .1 1" />
+    </material>
+  </visual>
+</link>
+
+<joint name="link1" type="fixed">
+  <parent link="neck_tilt_mount"/>
+  <child link="neck_tilt"/>
+</joint>
+
+<link name="neck_tilt">
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <box size="0 0 0" />
+    </geometry>
+    <material name="black">
+      <color rgba=".1 .1 .1 1" />
+    </material>
+  </visual>
+</link>
+
+<joint name="link2" type="fixed">
+  <parent link="neck_tilt"/>
   <child link="camera_center_link"/>
 </joint>
 
 <link name="camera_center_link">
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <box size="0 0 0" />
+    </geometry>
+    <material name="black">
+      <color rgba=".1 .1 .1 1" />
+    </material>
+  </visual>
+</link>
+
+<joint name="link3" type="fixed">
+  <parent link="camera_center_link"/>
+  <child link="camera_link"/>
+</joint>
+
+<link name="camera_link">
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0" />
     <geometry>
@@ -64,8 +115,25 @@
   </visual>
 </link>
 
-<joint name="kinect_fix" type="fixed">
-  <parent link="camera_center_link"/>
+<joint name="link4" type="fixed">
+  <parent link="camera_link"/>
+  <child link="camera_rgb_frame"/>
+</joint>
+
+<link name="camera_rgb_frame">
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <box size="0 0 0" />
+    </geometry>
+    <material name="black">
+      <color rgba=".1 .1 .1 1" />
+    </material>
+  </visual>
+</link>
+
+<joint name="link5" type="fixed">
+  <parent link="camera_rgb_frame"/>
   <child link="camera_rgb_optical_frame"/>
 </joint>
 
