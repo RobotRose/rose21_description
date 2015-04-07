@@ -15,11 +15,16 @@
 
 <joint name="lift_bottom" type="fixed">
   <parent link="base_link"/>
+  <child link="camera_rgb_optical_frame"/>
+</joint>
+
+<!--<joint name="lift_bottom" type="fixed">
+  <parent link="base_link"/>
   <child link="lift_link"/>
 </joint>
 
 <link name="lift_link">
-<!--  <visual>
+<visual>
     <origin xyz="0 0 0.24" rpy="0 0 0" />
     <geometry>
        <mesh filename="file:///home/osch/github/rose/rose/src/rose21_description/rose21_urdf/meshes/lift_link.dae" scale="0.001 0.001 0.001"/>
@@ -27,7 +32,7 @@
     <material name="ral9010">
       <color rgba=".8 .8 .8 1" />
     </material>
-  </visual>-->
+  </visual>
 </link>
 
 <joint name="neck_pan_joint" type="fixed">
@@ -135,7 +140,7 @@
 <joint name="link5" type="fixed">
   <parent link="camera_rgb_frame"/>
   <child link="camera_rgb_optical_frame"/>
-</joint>
+</joint> -->
 
 <link name="camera_rgb_optical_frame">
   <visual>
