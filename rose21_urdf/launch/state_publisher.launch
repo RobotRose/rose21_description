@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+    <param name="/rose/robot_description" command="cat $(find rose21_urdf)/urdf/rose21.xml" />
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub" >
+        <remap from="robot_description" to="rose/robot_description" />
+        <!-- <remap from="joint_states" to="different_joint_states" /> -->
+    </node>
+
+    <node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_publisher">
+        <remap from="robot_description" to="rose/robot_description" />
+        <!-- <remap from="joint_states" to="different_joint_states" /> -->
+        <param name="use_gui" value="true"/>
+    </node>
+</launch>

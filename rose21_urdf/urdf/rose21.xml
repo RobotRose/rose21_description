@@ -13,15 +13,17 @@
   </visual>
 </link>
 
-<joint name="lift_front_bottom" type="fixed">
+<joint name="lift_front_bottom" type="revolute">
   <parent link="base_link"/>
   <child link="lift_mechanism_front"/>
-  <origin xyz="0.42 0 0.085" rpy="0 0 0"/><!--TODO-->
+  <origin xyz="0.3395 0 0.0822" rpy="0 0 0"/><!--This link is 0.2172m above the ground and relative to base_link-->
+  <axis xyz="0 1 0"/>
+  <limit lower="-1" upper="1" velocity="10" effort="10"/> <!--TODO-->
 </joint>
 
 <link name="lift_mechanism_front">
   <visual>
-    <origin xyz="0 0 0" rpy="0 -0.5 0" />
+    <origin xyz="0 0 0.185" rpy="0 -0.5 0" />
     <geometry>
       <box size="0.047 0.113 0.370" />
     </geometry>
@@ -39,7 +41,7 @@
 <joint name="lift_back_bottom_left" type="fixed">
   <parent link="base_link"/>
   <child link="lift_mechanism_back_left"/>
-  <origin xyz="0.42 0.23 0.085" rpy="0 0 0"/><!--TODO-->
+  <origin xyz="0.1845 0.23 0.085" rpy="0 0 0"/><!--0.3395 - 0.155-->
 </joint>
 
 <link name="lift_mechanism_back_left">
@@ -57,7 +59,7 @@
 <joint name="lift_back_bottom_right" type="fixed">
   <parent link="base_link"/>
   <child link="lift_mechanism_back_right"/>
-  <origin xyz="0.42 0.23 0.085" rpy="0 0 0"/><!--TODO-->
+  <origin xyz="0.1845 0.23 0.085" rpy="0 0 0"/><!--TODO-->
 </joint>
 
 <link name="lift_mechanism_back_right">
@@ -224,7 +226,7 @@
 <joint name="laser_fix_joint" type="fixed">
   <parent link="base_link"/>
   <child link="laser"/>
-  <origin xyx="0.435 0.000 0.186" rpy="0.000 -0.000 0.000"/>
+  <origin xyx="0.435 0 0.186" rpy="0 0 0"/>
 </joint>
 
 <link name="laser">
