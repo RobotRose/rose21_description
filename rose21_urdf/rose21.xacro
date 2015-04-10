@@ -160,8 +160,7 @@
       <child link="lift_link"/>
       <axis xyz="0 1 0" />
       <origin xyz="${-liftsides_size_x} 0 0" rpy="0 0 0"/>  
-      <dynamics damping="1.0" friction="1.0"/>  
-      <limit effort="10.0" lower="0" upper="0" velocity="1.0"/>  
+      <mimic joint="lift_mid_bottom_joint" multiplier="-1"/>
     </joint>
   </xacro:macro>
   
