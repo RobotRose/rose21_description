@@ -4,7 +4,7 @@ import rospy
 from sensor_msgs.msg import JointState
 import random
 
-joints = ["lift_front_bottom", "lift_front_top", "lift_back_bottom_left", "lift_back_bottom_right", "neck_pan_joint", "link0", "link1", "link2", "link3", "link4", "link5"]
+joints = ["BR_caster", "BL_caster", "FR_caster", "FL_caster", "lift_mid_bottom_joint", "lift_mid_box_joint", "neck_fixed_joint", "neck_pan_joint", "neck_tilt_joint", "hokuyo_joint"]
 
 def r():
 	return random.random()
@@ -25,4 +25,4 @@ pub = rospy.Publisher("/joint_states", JointState)
 
 while not rospy.is_shutdown():
 	pub.publish(create())
-	rospy.sleep(0.5)
+	rospy.sleep(0.1)
