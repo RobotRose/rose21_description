@@ -109,49 +109,43 @@
     <xacro:default_inertial mass="0.5"/>
   </link> 
 
-  <!-- joint between base and lift_left --> 
-  <!-- URDF DOES NOT SUPPORT JOINT LOOPS SO ONLY USE ONE BAR OF THE LIFFT FOR NOW
+  <!-- joint between base and lift_left -->
   <joint name="lift_left_bottom_joint" type="revolute">
     <parent link="base_link"/>
     <child link="lift_left"/>
     <axis xyz="0 1 0" />
-    <origin xyz="${base_size_x/2 - 0.055 - 0.14} ${liftsides_pose_y} ${base_pose_z}" rpy="0 0 0"/>  
-    <dynamics damping="1.0" friction="1.0"/>  
+    <origin xyz="${base_size_x/2 - 0.055 - 0.14} ${liftsides_pose_y} ${base_pose_z}" rpy="0 0 0"/>
+    <mimic joint="lift_mid_bottom_joint"/>
     <limit effort="10.0" lower="0.0" upper="${pi/2}" velocity="1.0"/>  
   </joint>
-  -->
 
-  <!-- lift left -->
-  <!-- URDF DOES NOT SUPPORT JOINT LOOPS SO ONLY USE ONE BAR OF THE LIFFT FOR NOW
-  <link name='lift_left'>
+  <!-- lift left -->  <link name='lift_left'>
     <xacro:default_box  xyz=  "${-liftsides_size_x/2} 0 0" 
                         rpy=  "0 0 0" 
                         size= "${liftsides_size_x} ${liftsides_size_y} ${liftsides_size_z}"/>  
     <xacro:default_inertial mass="0.5"/>
   </link> 
-  -->
+
 
   <!-- joint between base and lift_right --> 
-  <!-- URDF DOES NOT SUPPORT JOINT LOOPS SO ONLY USE ONE BAR OF THE LIFFT FOR NOW
   <joint name="lift_right_bottom_joint" type="revolute">
     <parent link="base_link"/>
     <child link="lift_right"/>
     <axis xyz="0 1 0" />
     <origin xyz="${base_size_x/2 - 0.055 - 0.14} ${-liftsides_pose_y} ${base_pose_z}" rpy="0 0 0"/>  
-    <dynamics damping="1.0" friction="1.0"/>  
     <limit effort="10.0" lower="0.0" upper="${pi/2}" velocity="1.0"/>  
+    <mimic joint="lift_mid_bottom_joint"/>
   </joint>
-  -->
+  
  
   <!-- lift right --> 
-  <!-- URDF DOES NOT SUPPORT JOINT LOOPS SO ONLY USE ONE BAR OF THE LIFFT FOR NOW
   <link name='lift_right'>
       <xacro:default_box xyz=  "${-liftsides_size_x/2} 0 0" 
                           rpy=  "0 0 0" 
                           size= "${liftsides_size_x} ${liftsides_size_y} ${liftsides_size_z}"/>  
      <xacro:default_inertial mass="0.5"/>
   </link>   
-  -->
+  
 
   <!-- macro for joining the lift bars to the top of rose -->
   <xacro:macro name="lift_bar_joint" params="parent">
@@ -159,7 +153,7 @@
       <parent link="${parent}"/>
       <child link="lift_link"/>
       <axis xyz="0 1 0" />
-      <origin xyz="${-liftsides_size_x} 0 0" rpy="0 0 0"/>  
+      <origin xyz="${-liftsides_size_x} 0 0" rpy="0 0 0"/>
       <mimic joint="lift_mid_bottom_joint" multiplier="-1"/>
     </joint>
   </xacro:macro>
