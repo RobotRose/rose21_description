@@ -59,8 +59,9 @@
   <xacro:property name="neck_pan_pose_z" value="0.00" />
 
   <xacro:property name="neck_tilt_size_x" value="0.033" />
-  <xacro:property name="neck_tilt_size_y" value="0.04" />
-  <xacro:property name="neck_tilt_size_z" value="0.055" />
+  <xacro:property name="neck_tilt_size_y" value="0.035" />
+  <xacro:property name="neck_tilt_size_z" value="0.048" />
+  <xacro:property name="neck_tilt_servo_center_z" value="0.033" />
   <xacro:property name="neck_tilt_pose_x" value="0.28" /> <!--Distance between tilt axis and neck pan tube -->
   <xacro:property name="neck_tilt_pose_y" value="0.00" />
   <xacro:property name="neck_tilt_pose_z" value="0.115" /> <!--Height of the tilt axis from top of shoulders-->
@@ -240,7 +241,7 @@
 
   <!-- neck_tilt --> 
   <link name='neck_tilt'>
-    <xacro:default_box  xyz=  "0 0 ${neck_tilt_size_z/2}" 
+    <xacro:default_box  xyz=  "0 0 ${neck_tilt_size_z/2 - neck_tilt_servo_center_z}"
                         rpy=  "0 0 0" 
                         size= "${neck_tilt_size_x} ${neck_tilt_size_y} ${neck_tilt_size_z}"/>  
     <xacro:default_inertial mass="0.25"/>
