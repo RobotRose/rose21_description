@@ -24,7 +24,7 @@ int main(int argc, char** argv)
 
     while(n.ok())
     {
-        // tf_neck->broadcast();
+        tf_neck->broadcast();
         ros::spinOnce();
         rate.sleep();
     }

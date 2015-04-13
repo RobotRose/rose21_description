@@ -17,11 +17,11 @@ TFNeck::TFNeck(string name, ros::NodeHandle n)
     , name_ (name)
 {
     // Create all transform objects
-    tf_pan_mount_     = new TFHelper("neck_mount",         n, "/lift_link",          "/neck_mount");
-    tf_pan_rotation_  = new TFHelper("neck_pan",           n, "/neck_mount",         "/neck_pan");
-    tf_tilt_mount_    = new TFHelper("neck_tilt_mount",    n, "/neck_pan",           "/neck_tilt_mount");
-    tf_tilt_rotation_ = new TFHelper("neck_tilt",          n, "/neck_tilt_mount",    "/neck_tilt");
-    tf_camera_center_ = new TFHelper("neck_camera_center", n, "/neck_tilt",          "/camera_center_link");
+    // tf_pan_mount_     = new TFHelper("neck_mount",         n, "/lift_link",          "/neck_mount");
+    // tf_pan_rotation_  = new TFHelper("neck_pan",           n, "/neck_mount",         "/neck_pan");
+    // tf_tilt_mount_    = new TFHelper("neck_tilt_mount",    n, "/neck_pan",           "/neck_tilt_mount");
+    // tf_tilt_rotation_ = new TFHelper("neck_tilt",          n, "/neck_tilt_mount",    "/neck_tilt");
+    // tf_camera_center_ = new TFHelper("neck_camera_center", n, "/neck_tilt",          "/camera_center_link");
     tf_camera_        = new TFHelper("neck_camera",        n, "/camera_center_link", "/rose/camera_link");
 
     double pan_mount_x;
@@ -42,18 +42,18 @@ TFNeck::TFNeck(string name, ros::NodeHandle n)
     n_.param("/neck_tf/tilt_mount_z", tilt_mount_z, 0.031008);
 
     // Set (X,Y,Z) transformations
-    tf_pan_mount_->    setTransform(0.0, 0.0, 0.0, pan_mount_x,  pan_mount_y,  pan_mount_z ); // X- and Z-Transform between /lift_link and pan rotation point
-    tf_tilt_mount_->   setTransform(0.0, 0.0, 0.0, tilt_mount_x, tilt_mount_y, tilt_mount_z ); // Transformation between pan point and tilt point
+    // tf_pan_mount_->    setTransform(0.0, 0.0, 0.0, pan_mount_x,  pan_mount_y,  pan_mount_z ); // X- and Z-Transform between /lift_link and pan rotation point
+    // tf_tilt_mount_->   setTransform(0.0, 0.0, 0.0, tilt_mount_x, tilt_mount_y, tilt_mount_z ); // Transformation between pan point and tilt point
     
-    tf_camera_center_->setTransform(0.0, 0.0, 0.0, 0.0   , 0.0 , 0.0659   ); // Z-transformation between tilt rotation point and enter point of camera in Kinect
+    // tf_camera_center_->setTransform(0.0, 0.0, 0.0, 0.0   , 0.0 , 0.0659   ); // Z-transformation between tilt rotation point and enter point of camera in Kinect
     tf_camera_->       setTransform(0.0, 0.0, 0.0, 0.03  , 0.05, 0.0      ); // Camera location on the kinect
 
     // Initialize rotations at 0 (assumption)
-    tf_pan_rotation_-> setTransform(0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
-    tf_tilt_rotation_->setTransform(0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+    // tf_pan_rotation_-> setTransform(0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
+    // tf_tilt_rotation_->setTransform(0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
 
-    pan_state_sub_   = n_.subscribe("/neck_pan_controller/state" , 100, &TFNeck::CB_pan_state, this);
-    tilt_state_sub_  = n_.subscribe("/neck_tilt_controller/state", 100, &TFNeck::CB_tilt_state, this);
+    // pan_state_sub_   = n_.subscribe("/neck_pan_controller/state" , 100, &TFNeck::CB_pan_state, this);
+    // tilt_state_sub_  = n_.subscribe("/neck_tilt_controller/state", 100, &TFNeck::CB_tilt_state, this);
 }
 
 TFNeck::~TFNeck()
@@ -70,11 +70,11 @@ TFNeck::~TFNeck()
 void TFNeck::broadcast()
 {
     // Broadcast all TFs
-    tf_pan_mount_->Broadcast();
-    tf_pan_rotation_->Broadcast();
-    tf_tilt_mount_->Broadcast();
-    tf_tilt_rotation_->Broadcast();
-    tf_camera_center_->Broadcast();
+    // tf_pan_mount_->Broadcast();
+    // tf_pan_rotation_->Broadcast();
+    // tf_tilt_mount_->Broadcast();
+    // tf_tilt_rotation_->Broadcast();
+    // tf_camera_center_->Broadcast();
     tf_camera_->Broadcast();
 }
 
