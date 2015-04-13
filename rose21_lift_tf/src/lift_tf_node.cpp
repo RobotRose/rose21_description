@@ -29,7 +29,7 @@ int main(int argc, char** argv)
     // Keep on spinnin
     while(n.ok())
     {
-        tf_lift->Broadcast();
+        // tf_lift->Broadcast();
         ros::spinOnce();
         rate.sleep();
     }

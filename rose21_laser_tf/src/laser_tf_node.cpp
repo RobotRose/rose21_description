@@ -33,7 +33,7 @@ int main(int argc, char** argv)
     while(n.ok())
     {
         // Calculate the odomotry and broadcast it 
-        tf_laser->Broadcast();
+        // tf_laser->Broadcast();
 
         ros::spinOnce();
         rate.sleep();
