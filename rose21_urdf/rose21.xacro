@@ -37,14 +37,14 @@
 
   <xacro:property name="lifttopbox_size_x" value="0.29" />
   <xacro:property name="lifttopbox_size_y" value="0.24" />
-  <xacro:property name="lifttopbox_size_z" value="0.697" /> <!--This includes the shoulders -->
-  <xacro:property name="lifttopbox_pose_x" value="0.0" />
+  <xacro:property name="lifttopbox_size_z" value="0.48" /> <!--This excludes the shoulders -->
+  <xacro:property name="lifttopbox_pose_x" value="-0.10" />
   <xacro:property name="lifttopbox_pose_y" value="0.0" />
   <xacro:property name="lifttopbox_pose_z" value="0.285"/>
 
   <xacro:property name="shoulders_size_x" value="0.265" />
   <xacro:property name="shoulders_size_y" value="0.58" />
-  <xacro:property name="shoulders_size_z" value="0.177" /> <!--This includes the shoulders -->
+  <xacro:property name="shoulders_size_z" value="0.177" />
 
   <xacro:property name="lift_rpy" value="0 0 0"/>
 
@@ -167,7 +167,7 @@
   
   <!-- lift top box --> 
   <link name='lift_link'> 
-    <xacro:default_box  xyz=  "-0.10 0 ${lifttopbox_size_z/2}" 
+    <xacro:default_box  xyz=  "${lifttopbox_pose_x} 0 ${lifttopbox_size_z/2}" 
                         rpy=  "0 0 0" 
                         size= "${lifttopbox_size_x} ${lifttopbox_size_y} ${lifttopbox_size_z}"/>  
     <xacro:default_inertial mass="0.1"/>
@@ -212,7 +212,7 @@
     <parent link="lift_link"/>
     <child link="neck_pan"/>
     <axis xyz="0 0 1" />
-    <origin xyz="0 0 ${lifttopbox_size_z + shoulders_size_z}" rpy="0 0 0"/>
+    <origin xyz="${lifttopbox_pose_x} 0 ${lifttopbox_size_z + shoulders_size_z}" rpy="0 0 0"/>
     <dynamics damping="1.0" friction="1.0"/>  
     <limit effort="1.0" lower="-0.7853" upper="0.7853" velocity="10.0"/>  
   </joint>
@@ -222,7 +222,7 @@
   |
    --> 
   <link name='neck_pan'>
-    <xacro:default_box  xyz=  "${neck_pan_size_x /2} 0 ${neck_pan_size_z/2}" 
+    <xacro:default_box  xyz=  "${neck_pan_size_x/2} 0 ${neck_pan_size_z/2 + neck_tube_size_z}" 
                         rpy=  "0 0 0" 
                         size= "${neck_pan_size_x} ${neck_pan_size_y} ${neck_pan_size_z}"/>  
     <xacro:default_inertial mass="0.25"/>
@@ -247,7 +247,7 @@
   </link>
 
   <!-- joint between neck_tilt and kinect-->
-  <joint name="kinect_fiz" type="fixed">
+  <joint name="kinect_fix" type="fixed">
     <parent link="neck_tilt"/>
     <child link="kinect"/>
     <axis xyz="0 1 0" />
