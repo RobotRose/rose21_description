@@ -209,7 +209,7 @@
   <!-- START neck -->
 
   <!-- joint between lift_link and neck_pan -->
-  <joint name="neck_pan_joint" type="revolute">
+  <joint name="pan_joint" type="revolute">
     <parent link="lift_link"/>
     <child link="neck_pan"/>
     <axis xyz="0 0 1" />
@@ -230,7 +230,7 @@
   </link>
 
    <!-- joint between neck_pan and neck_tilt-->
-  <joint name="neck_tilt_joint" type="revolute">
+  <joint name="tilt_joint" type="revolute">
     <parent link="neck_pan"/>
     <child link="neck_tilt"/>
     <axis xyz="0 1 0" />
