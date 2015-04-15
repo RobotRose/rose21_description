@@ -233,7 +233,7 @@
   <joint name="tilt_joint" type="revolute">
     <parent link="neck_pan"/>
     <child link="neck_tilt"/>
-    <axis xyz="0 1 0" />
+    <axis xyz="0 -1 0" />
     <origin xyz="${neck_tilt_pose_x} ${neck_tilt_pose_y} ${neck_tilt_pose_z}" rpy="0 0 0"/>  
     <dynamics damping="1.0" friction="1.0"/>  
     <limit effort="1.0" lower="-1.5707" upper="1.5707" velocity="1.0"/>  
