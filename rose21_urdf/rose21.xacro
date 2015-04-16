@@ -1,7 +1,7 @@
 <robot name="Rose20" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find rose20_description)/common.xacro" />
-  <xacro:include filename="$(find rose20_description)/wheel_unit_60mm/wheel_unit_60mm_macro.xacro" />
+  <xacro:include filename="$(find rose21_urdf)/common.xacro" />
+  <xacro:include filename="$(find rose21_urdf)/urdf/wheel_unit_60mm/wheel_unit_60mm_macro.xacro" />
 
   <xacro:property name="base_size_x" value="0.76" />
   <xacro:property name="base_size_y" value="0.58" />
@@ -264,7 +264,7 @@
     <visual>
       <origin xyz="0 0 0.036" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://rose20_description/rose20/meshes/kinect.dae"/>
+          <mesh filename="package://rose21_urdf/meshes/kinect.dae"/>
         </geometry>
     </visual>                   
     <xacro:default_inertial mass="0.1"/>       
