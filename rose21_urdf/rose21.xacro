@@ -10,6 +10,13 @@
   <xacro:property name="base_pose_y" value="0.0" />
   <xacro:property name="base_pose_z" value="0.20" />
 
+  <xacro:property name="tray_size_x" value="0.20" />
+  <xacro:property name="tray_size_y" value="0.20" />
+  <xacro:property name="tray_size_z" value="0.05" />
+  <xacro:property name="tray_pose_x" value="0.135" />
+  <xacro:property name="tray_pose_y" value="0.0" />
+  <xacro:property name="tray_pose_z" value="0.13" />
+
   <xacro:property name="wheel_front_x"    value="0.28" />
   <xacro:property name="wheel_back_x"     value="-0.305" />
   <xacro:property name="wheelbase_width"  value="0.23" />
@@ -205,6 +212,19 @@
       <top_lift_joint>lift_mid_box_joint</top_lift_joint> 
     </plugin>
   </gazebo>
+
+  <joint name="tray_mount" type="fixed">
+    <parent link="lift_link"/>
+    <child link="tray"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>  
+  </joint>
+   
+  <link name='tray'>
+    <xacro:default_box  xyz=  "${tray_pose_x} ${tray_pose_y} ${tray_pose_z}" 
+                        rpy=  "0 0 0" 
+                        size= "${tray_size_x} ${tray_size_y} ${tray_size_z}"/>  
+    <xacro:default_inertial mass="2.0"/>
+  </link>
 
   <!-- START neck -->
 
