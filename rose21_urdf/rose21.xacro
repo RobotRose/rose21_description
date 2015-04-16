@@ -2,6 +2,7 @@
 
   <xacro:include filename="$(find rose21_urdf)/common.xacro" />
   <xacro:include filename="$(find rose21_urdf)/urdf/wheel_unit_60mm/wheel_unit_60mm_macro.xacro" />
+  <xacro:include filename="$(find mico_description)/urdf/mico_arm.urdf.xacro" />
 
   <xacro:property name="base_size_x" value="0.76" />
   <xacro:property name="base_size_y" value="0.58" />
@@ -16,6 +17,10 @@
   <xacro:property name="tray_pose_x" value="0.135" />
   <xacro:property name="tray_pose_y" value="0.0" />
   <xacro:property name="tray_pose_z" value="0.13" />
+
+  <xacro:property name="mico_pose_x" value="0.053" />
+  <xacro:property name="mico_pose_y" value="0.17" /> <!-- 5cm from the side of the lift_link -->
+  <xacro:property name="mico_pose_z" value="0.14" />
 
   <xacro:property name="wheel_front_x"    value="0.28" />
   <xacro:property name="wheel_back_x"     value="-0.305" />
@@ -225,6 +230,9 @@
                         size= "${tray_size_x} ${tray_size_y} ${tray_size_z}"/>  
     <xacro:default_inertial mass="2.0"/>
   </link>
+
+  <!-- ATTACH ARM -->
+  <xacro:mico_arm parent="lift_link" xyz="${mico_pose_x}  ${mico_pose_y}  ${mico_pose_z}" rpy="0 0 ${pi / 2}"/>
 
   <!-- START neck -->
 
