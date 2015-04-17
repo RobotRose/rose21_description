@@ -8,7 +8,7 @@
 
   <xacro:property name="base_size_x" value="0.76" />
   <xacro:property name="base_size_y" value="0.58" />
-  <xacro:property name="base_size_z" value="0.05" />
+  <xacro:property name="base_size_z" value="0.12" />
   <xacro:property name="base_pose_x" value="0.0" />
   <xacro:property name="base_pose_y" value="0.0" />
   <xacro:property name="base_pose_z" value="0.26" />
