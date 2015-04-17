@@ -346,7 +346,7 @@
       </visual>
     </link>
 
-  <xacro:kinect parent_frame="camera_center_link" xyz="0 0 0" rpy="0 0 0" tf_prefix="rose"/>
+  <xacro:kinect parent_frame="camera_center_link" xyz="0 0 0" rpy="0 0 0"/>
 
     <!-- START Hokuyo -->
 
