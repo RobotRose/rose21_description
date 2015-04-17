@@ -71,7 +71,7 @@
   <xacro:property name="neck_pan_size_x" value="0.298" />
   <xacro:property name="neck_pan_size_y" value="0.04" />
   <xacro:property name="neck_pan_size_z" value="0.02" />
-  <xacro:property name="neck_pan_pose_x" value="0.08" /> <!--relative to lift_link -->
+  <xacro:property name="neck_pan_pose_x" value="-0.08" /> <!--relative to lift_link -->
   <xacro:property name="neck_pan_pose_y" value="0.00" />
   <xacro:property name="neck_pan_pose_z" value="0.00" />
 
