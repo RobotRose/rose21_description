@@ -51,7 +51,7 @@
 
   <xacro:property name="lifttopbox_size_x" value="0.29" />
   <xacro:property name="lifttopbox_size_y" value="0.24" />
-  <xacro:property name="lifttopbox_size_z" value="0.48" /> <!--This excludes the shoulders -->
+  <xacro:property name="lifttopbox_size_z" value="0.52" /> <!--This excludes the shoulders -->
   <xacro:property name="lifttopbox_pose_x" value="-0.10" />
   <xacro:property name="lifttopbox_pose_y" value="0.0" />
   <xacro:property name="lifttopbox_pose_z" value="0.285"/>
@@ -242,7 +242,7 @@
   </joint>
    
   <link name='shoulders'>
-    <xacro:default_box  xyz=  "${shoulders_pose_x} ${shoulders_pose_y} ${shoulders_pose_z}" 
+    <xacro:default_box  xyz=  "${shoulders_pose_x} ${shoulders_pose_y} ${lifttopbox_size_z + shoulders_size_z/2}" 
                         rpy=  "0 0 0" 
                         size= "${shoulders_size_x} ${shoulders_size_y} ${shoulders_size_z}"/>  
     <xacro:default_inertial mass="2.0"/>
