@@ -56,10 +56,10 @@
   <xacro:property name="lifttopbox_pose_y" value="0.0" />
   <xacro:property name="lifttopbox_pose_z" value="0.285"/>
 
-  <xacro:property name="shoulders_size_x" value="0.265" />
+  <xacro:property name="shoulders_size_x" value="0.21" />
   <xacro:property name="shoulders_size_y" value="0.58" />
   <xacro:property name="shoulders_size_z" value="0.177" />
-  <xacro:property name="shoulders_pose_x" value="-0.10" />
+  <xacro:property name="shoulders_pose_x" value="-0.08" />
   <xacro:property name="shoulders_pose_y" value="0.0" />
   <xacro:property name="shoulders_pose_z" value="0.0"/>
 
