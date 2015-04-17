@@ -51,7 +51,7 @@
 
   <xacro:property name="lifttopbox_size_x" value="0.29" />
   <xacro:property name="lifttopbox_size_y" value="0.24" />
-  <xacro:property name="lifttopbox_size_z" value="0.52" /> <!--This excludes the shoulders -->
+  <xacro:property name="lifttopbox_size_z" value="0.48" /> <!--This excludes the shoulders -->
   <xacro:property name="lifttopbox_pose_x" value="-0.10" />
   <xacro:property name="lifttopbox_pose_y" value="0.0" />
   <xacro:property name="lifttopbox_pose_z" value="0.285"/>
@@ -59,9 +59,9 @@
   <xacro:property name="shoulders_size_x" value="0.265" />
   <xacro:property name="shoulders_size_y" value="0.58" />
   <xacro:property name="shoulders_size_z" value="0.177" />
-  <xacro:property name="shoulders_pose_x" value="0.0" />
+  <xacro:property name="shoulders_pose_x" value="-0.10" />
   <xacro:property name="shoulders_pose_y" value="0.0" />
-  <xacro:property name="shoulders_pose_z" value="0.51"/>
+  <xacro:property name="shoulders_pose_z" value="0.0"/>
 
   <xacro:property name="lift_rpy" value="0 0 0"/>
 
