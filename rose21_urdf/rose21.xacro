@@ -235,6 +235,19 @@
     <xacro:default_inertial mass="2.0"/>
   </link>
 
+  <joint name="shoulders" type="fixed">
+    <parent link="lift_link"/>
+    <child link="shoulders"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>  
+  </joint>
+   
+  <link name='shoulders'>
+    <xacro:default_box  xyz=  "${shoulders_pose_x} ${shoulders_pose_y} ${shoulders_pose_z}" 
+                        rpy=  "0 0 0" 
+                        size= "${shoulders_size_x} ${shoulders_size_y} ${shoulders_size_z}"/>  
+    <xacro:default_inertial mass="2.0"/>
+  </link>
+
   <!-- ATTACH ARM -->
   <xacro:mico_arm parent="lift_link" xyz="${mico_pose_x}  ${mico_pose_y}  ${mico_pose_z}" rpy="0 0 ${pi / 2}"/>
 
