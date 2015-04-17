@@ -12,10 +12,11 @@
         <remap from="robot_description" to="rose/robot_description" />
         <rosparam>
             source_list: ['/lift_controller/lift/joint_states', '/neck/jointstates', 'mico_arm/joint_states']
-            use_gui: true
+            use_gui: false
        </rosparam>
     </node>
-
+   
     <include file="$(find rose21_urdf)/launch/neck_dynamixels.launch"/>
-
+   
+    <node pkg="tf" type="static_transform_publisher" name="prefix_camera_rose" args="0 0 0 0 0 0 /camera_rgb_optical_frame /rose/camera_rgb_optical_frame 10"/>
 </launch>
