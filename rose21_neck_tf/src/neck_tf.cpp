@@ -22,7 +22,7 @@ TFNeck::TFNeck(string name, ros::NodeHandle n)
     // tf_tilt_mount_    = new TFHelper("neck_tilt_mount",    n, "/neck_pan",           "/neck_tilt_mount");
     // tf_tilt_rotation_ = new TFHelper("neck_tilt",          n, "/neck_tilt_mount",    "/neck_tilt");
     // tf_camera_center_ = new TFHelper("neck_camera_center", n, "/neck_tilt",          "/camera_center_link");
-    tf_camera_        = new TFHelper("neck_camera",        n, "/camera_center_link", "/rose/camera_link");
+    // tf_camera_        = new TFHelper("neck_camera",        n, "/camera_center_link", "/rose/camera_link");
 
     double pan_mount_x;
     double pan_mount_y;
@@ -46,7 +46,7 @@ TFNeck::TFNeck(string name, ros::NodeHandle n)
     // tf_tilt_mount_->   setTransform(0.0, 0.0, 0.0, tilt_mount_x, tilt_mount_y, tilt_mount_z ); // Transformation between pan point and tilt point
     
     // tf_camera_center_->setTransform(0.0, 0.0, 0.0, 0.0   , 0.0 , 0.0659   ); // Z-transformation between tilt rotation point and enter point of camera in Kinect
-    tf_camera_->       setTransform(0.0, 0.0, 0.0, 0.03  , 0.05, 0.0      ); // Camera location on the kinect
+    // tf_camera_->       setTransform(0.0, 0.0, 0.0, 0.03  , 0.05, 0.0      ); // Camera location on the kinect
 
     // Initialize rotations at 0 (assumption)
     // tf_pan_rotation_-> setTransform(0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
@@ -75,7 +75,7 @@ void TFNeck::broadcast()
     // tf_tilt_mount_->Broadcast();
     // tf_tilt_rotation_->Broadcast();
     // tf_camera_center_->Broadcast();
-    tf_camera_->Broadcast();
+    // tf_camera_->Broadcast();
 }
 
 void TFNeck::CB_pan_state(const dynamixel_msgs::JointState& state)

@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <robot name="Rose20" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:include filename="$(find rose21_urdf)/common.xacro" />
@@ -277,27 +278,15 @@
   </link>
 
   <!-- joint between neck_tilt and kinect-->
-  <joint name="kinect_fix" type="fixed">
+<!--   <joint name="kinect_fix" type="fixed">
     <parent link="neck_tilt"/>
     <child link="kinect"/>
     <axis xyz="0 1 0" />
     <origin xyz="${kinect_pose_x} ${kinect_pose_y} ${kinect_pose_z}" rpy="0 0 0"/>  
-  </joint>
+  </joint> -->
   <!-- END neck -->
 
   <!-- START kinect --> 
-  <link name='kinect'>
-    <xacro:collission_box   xyz=  "0 0 0.036" 
-                            rpy=  "0 0 0" 
-                            size= "${kinect_size_x} ${kinect_size_y} ${kinect_size_z}"/>
-    <visual>
-      <origin xyz="0 0 0.036" rpy="0 0 0" />
-        <geometry>
-          <mesh filename="package://rose21_urdf/meshes/kinect.dae"/>
-        </geometry>
-    </visual>                   
-    <xacro:default_inertial mass="0.1"/>       
-  </link>  
 
 <!--   <gazebo reference="kinect">
     <sensor type="depth" name="kinect">
@@ -340,9 +329,10 @@
   </gazebo> -->
 
 
-  <joint name="link2" type="fixed">
+    <joint name="link2" type="fixed">
       <parent link="neck_tilt"/>
       <child link="camera_center_link"/>
+      <origin xyz="0.03 0 0.07" rpy="0 0 0"/> <!-- Values obtained from neck_tf.cpp-->
     </joint>
 
     <link name="camera_center_link">
@@ -357,56 +347,7 @@
       </visual>
     </link>
 
-    <joint name="link3" type="fixed">
-      <parent link="camera_center_link"/>
-      <child link="camera_link"/>
-    </joint>
-
-    <link name="camera_link">
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <box size="0.06 0.28 0.04" />
-        </geometry>
-        <material name="black">
-          <color rgba=".1 .1 .1 1" />
-        </material>
-      </visual>
-    </link>
-
-    <joint name="link4" type="fixed">
-      <parent link="camera_link"/>
-      <child link="camera_rgb_frame"/>
-    </joint>
-
-    <link name="camera_rgb_frame">
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <box size="0 0 0" />
-        </geometry>
-        <material name="black">
-          <color rgba=".1 .1 .1 1" />
-        </material>
-      </visual>
-    </link>
-
-    <joint name="link5" type="fixed">
-      <parent link="camera_rgb_frame"/>
-      <child link="camera_rgb_optical_frame"/>
-    </joint> 
-
-    <link name="camera_rgb_optical_frame">
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <box size="0 0 0" />
-        </geometry>
-        <material name="black">
-          <color rgba=".1 .1 .1 1" />
-        </material>
-      </visual>
-    </link>
+  <xacro:kinect parent_frame="camera_center_link" xyz="0 0 0" rpy="0 0 0" tf_prefix="rose"/>
 
     <!-- START Hokuyo -->
 

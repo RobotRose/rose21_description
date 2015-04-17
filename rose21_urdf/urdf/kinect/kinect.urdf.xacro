@@ -1,19 +1,28 @@
 <?xml version="1.0"?>
-<robot name="cwru_hardware" xmlns:xacro="http://ros.org/wiki/xacro">
-  <property name="M_PI" value="3.14159"/>
+<robot xmlns:xi="http://www.w3.org/2001/XInclude"
+    xmlns:gazebo="http://playerstage.sourceforge.net/gazebo/xmlschema/#gz"
+    xmlns:model="http://playerstage.sourceforge.net/gazebo/xmlschema/#model"
+    xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+    xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
+    xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom"
+    xmlns:joint="http://playerstage.sourceforge.net/gazebo/xmlschema/#joint"
+    xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+    xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+    xmlns:rendering="http://playerstage.sourceforge.net/gazebo/xmlschema/#rendering"
+    xmlns:renderable="http://playerstage.sourceforge.net/gazebo/xmlschema/#renderable"
+    xmlns:physics="http://playerstage.sourceforge.net/gazebo/xmlschema/#physics"
+    xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <include filename="$(find cwru_description)/urdf/gazebo.urdf.xacro"/>
-
-<xacro:macro name="kinect" params="xyz rpy parent_frame" >
+<xacro:macro name="kinect" params="xyz rpy parent_frame tf_prefix" >
   
   <joint name="base_camera_joint" type="fixed">
     <origin xyz="${xyz}" rpy="${rpy}" />
     <parent link="${parent_frame}" />
     <origin xyz="0 0 0" rpy="0 0 0" />
-    <child link="camera_link" />
+    <child link="${tf_prefix}/camera_link" />
   </joint>
 
-  <link name="camera_link">
+  <link name="${tf_prefix}/camera_link">
     <inertial>
       <mass value="0.01" />
       <origin xyz="0 0 0" />
@@ -25,7 +34,7 @@
     <visual>
       <origin xyz=" 0 0 0 " rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://cwru_description/meshes/kinect.dae"/>
+        <mesh filename="package://rose21_urdf/meshes/kinect.dae"/>
       </geometry>
     </visual>
 
@@ -40,11 +49,11 @@
   
   <joint name="camera_depth_joint" type="fixed">
     <origin xyz="0 0.011 0" rpy="0 0 0" />
-    <parent link="camera_link" />
-    <child link="camera_depth_frame" />
+    <parent link="${tf_prefix}/camera_link" />
+    <child link="${tf_prefix}/camera_depth_frame" />
   </joint>
 
-  <link name="camera_depth_frame">
+  <link name="${tf_prefix}/camera_depth_frame">
     <inertial>
       <mass value="0.01" />
       <origin xyz="0 0 0" />
@@ -56,11 +65,11 @@
 
   <joint name="camera_depth_optical_joint" type="fixed">
     <origin xyz="0 0 0" rpy="${-M_PI/2} 0 ${-M_PI/2}" />
-    <parent link="camera_depth_frame" />
-    <child link="camera_depth_optical_frame" />
+    <parent link="${tf_prefix}/camera_depth_frame" />
+    <child link="${tf_prefix}/camera_depth_optical_frame" />
   </joint>
 
-  <link name="camera_depth_optical_frame">
+  <link name="${tf_prefix}/camera_depth_optical_frame">
     <inertial>
       <mass value="0.001" />
       <origin xyz="0 0 0" />
@@ -72,11 +81,11 @@
 
   <joint name="camera_rgb_joint" type="fixed">
     <origin xyz="0 -0.012 0" rpy="0 0 0" />
-    <parent link="camera_link" />
-    <child link="camera_rgb_frame" />
+    <parent link="${tf_prefix}/camera_link" />
+    <child link="${tf_prefix}/camera_rgb_frame" />
   </joint>
 
-  <link name="camera_rgb_frame">
+  <link name="${tf_prefix}/camera_rgb_frame">
     <inertial>
       <mass value="0.001" />
       <origin xyz="0 0 0" />
@@ -88,11 +97,11 @@
 
   <joint name="camera_rgb_optical_joint" type="fixed">
     <origin xyz="0 0 0" rpy="${-M_PI/2} 0 ${-M_PI/2}" />
-    <parent link="camera_rgb_frame" />
-    <child link="camera_rgb_optical_frame" />
+    <parent link="${tf_prefix}/camera_rgb_frame" />
+    <child link="${tf_prefix}/camera_rgb_optical_frame" />
   </joint>
 
-  <link name="camera_rgb_optical_frame">
+  <link name="${tf_prefix}/camera_rgb_optical_frame">
     <inertial>
       <mass value="0.001" />
       <origin xyz="0 0 0" />
@@ -102,8 +111,6 @@
     </inertial>
   </link>
 
-  <!-- Kinect sensor for simulation -->
-  <sim_kinect/>
 </xacro:macro>
 
 </robot>
