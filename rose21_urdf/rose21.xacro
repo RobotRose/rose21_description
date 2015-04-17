@@ -258,7 +258,7 @@
     <parent link="lift_link"/>
     <child link="neck_pan"/>
     <axis xyz="0 0 1" />
-    <origin xyz="${lifttopbox_pose_x} 0 ${lifttopbox_size_z + shoulders_size_z}" rpy="0 0 0"/>
+    <origin xyz="${neck_pan_pose_x} 0 ${lifttopbox_size_z + shoulders_size_z}" rpy="0 0 0"/>
     <dynamics damping="1.0" friction="1.0"/>  
     <limit effort="1.0" lower="-0.7853" upper="0.7853" velocity="10.0"/>  
   </joint>
@@ -268,7 +268,7 @@
   |
    --> 
   <link name='neck_pan'>
-    <xacro:default_box  xyz=  "${neck_pan_pose_x} 0 ${neck_pan_size_z/2 + neck_tube_size_z}" 
+    <xacro:default_box  xyz=  "${neck_pan_size_x/2} 0 ${neck_pan_size_z/2 + neck_tube_size_z}" 
                         rpy=  "0 0 0" 
                         size= "${neck_pan_size_x} ${neck_pan_size_y} ${neck_pan_size_z}"/>  
     <xacro:default_inertial mass="0.25"/>
