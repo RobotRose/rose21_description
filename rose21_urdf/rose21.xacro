@@ -20,7 +20,7 @@
   <xacro:property name="tray_pose_y" value="0.0" />
   <xacro:property name="tray_pose_z" value="0.13" />
 
-  <xacro:property name="mico_pose_x" value="0.053" />
+  <xacro:property name="mico_pose_x" value="0.08" />
   <xacro:property name="mico_pose_y" value="0.17" /> <!-- 5cm from the side of the lift_link -->
   <xacro:property name="mico_pose_z" value="0.14" />
 
@@ -59,6 +59,9 @@
   <xacro:property name="shoulders_size_x" value="0.265" />
   <xacro:property name="shoulders_size_y" value="0.58" />
   <xacro:property name="shoulders_size_z" value="0.177" />
+  <xacro:property name="shoulders_pose_x" value="0.0" />
+  <xacro:property name="shoulders_pose_y" value="0.0" />
+  <xacro:property name="shoulders_pose_z" value="0.51"/>
 
   <xacro:property name="lift_rpy" value="0 0 0"/>
 
