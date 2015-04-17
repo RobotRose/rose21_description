@@ -11,7 +11,7 @@
   <xacro:property name="base_size_z" value="0.05" />
   <xacro:property name="base_pose_x" value="0.0" />
   <xacro:property name="base_pose_y" value="0.0" />
-  <xacro:property name="base_pose_z" value="0.20" />
+  <xacro:property name="base_pose_z" value="0.26" />
 
   <xacro:property name="tray_size_x" value="0.20" />
   <xacro:property name="tray_size_y" value="0.20" />
