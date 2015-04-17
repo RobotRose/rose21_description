@@ -176,7 +176,6 @@
       <child link="lift_link"/>
       <axis xyz="0 1 0" />
       <origin xyz="${-liftsides_size_x} 0 0" rpy="0 0 0"/>
-      <mimic joint="lift_mid_bottom_joint" multiplier="-1"/>
     </joint>
   </xacro:macro>
   
