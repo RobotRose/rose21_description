@@ -71,7 +71,7 @@
   <xacro:property name="neck_pan_size_x" value="0.298" />
   <xacro:property name="neck_pan_size_y" value="0.04" />
   <xacro:property name="neck_pan_size_z" value="0.02" />
-  <xacro:property name="neck_pan_pose_x" value="0.015" />
+  <xacro:property name="neck_pan_pose_x" value="0.075" /> <!--relative to lift_link -->
   <xacro:property name="neck_pan_pose_y" value="0.00" />
   <xacro:property name="neck_pan_pose_z" value="0.00" />
 
@@ -268,7 +268,7 @@
   |
    --> 
   <link name='neck_pan'>
-    <xacro:default_box  xyz=  "${neck_pan_size_x/2} 0 ${neck_pan_size_z/2 + neck_tube_size_z}" 
+    <xacro:default_box  xyz=  "${neck_pan_pose_x} 0 ${neck_pan_size_z/2 + neck_tube_size_z}" 
                         rpy=  "0 0 0" 
                         size= "${neck_pan_size_x} ${neck_pan_size_y} ${neck_pan_size_z}"/>  
     <xacro:default_inertial mass="0.25"/>
