@@ -2,7 +2,7 @@
 <robot name="Rose20" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:include filename="$(find rose21_urdf)/common.xacro" />
-  <xacro:include filename="$(find rose21_urdf)/urdf/wheel_unit_60mm/wheel_unit_60mm_macro.xacro" />
+  <xacro:include filename="$(find opteq_wheelunits_01)/urdf/wheel_unit_60mm_macro.xacro" />
   <xacro:include filename="$(find mico_description)/urdf/mico_arm.urdf.xacro" />
   <xacro:include filename="$(find kinect_description)/urdf/kinect.urdf.xacro" />
 
