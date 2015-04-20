@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <launch>
-    <!-- <param name="/rose/robot_description" command="cat $(find rose21_urdf)/urdf/rose21.xml" /> -->
     <param name="/rose/robot_description" command="$(find xacro)/xacro.py '$(find rose21_urdf)/rose21.xacro'" />
 
     <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub" >
@@ -17,6 +16,4 @@
     </node>
    
     <include file="$(find rose21_urdf)/launch/neck_dynamixels.launch"/>
-   
-    <node pkg="tf" type="static_transform_publisher" name="prefix_camera_rose" args="0 0 0 0 0 0 /camera_rgb_optical_frame /rose/camera_rgb_optical_frame 10"/>
 </launch>
