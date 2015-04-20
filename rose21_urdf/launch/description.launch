@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+        <param name="/rose/robot_description" command="cat $(find rose21_urdf)/urdf/rose21.xml" />
+</launch>

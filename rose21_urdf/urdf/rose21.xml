@@ -1,0 +1,244 @@
+
+<robot name="rose">
+
+<link name="base_link">
+  <visual>
+    <origin xyz="0 0 0.135" rpy="0 0 0" />
+    <geometry>
+      <box size="0.79 0.6 0.26" />
+    </geometry>
+    <material name="ral9010">
+      <color rgba=".8 .8 .8 1" />
+    </material>
+  </visual>
+</link>
+
+<joint name="lift_front_bottom" type="revolute">
+  <parent link="base_link"/>
+  <child link="lift_mechanism_front"/>
+  <origin xyz="0.3395 0 0.0822" rpy="0 0 0"/><!--This link is 0.2172m above the ground and relative to base_link-->
+  <axis xyz="0 1 0"/>
+  <limit lower="-1" upper="1" velocity="10" effort="10"/> <!--TODO-->
+</joint>
+
+<link name="lift_mechanism_front">
+  <visual>
+    <origin xyz="0 0 0.185" rpy="0 -0.5 0" />
+    <geometry>
+      <box size="0.047 0.113 0.370" />
+    </geometry>
+    <material name="ral9010">
+      <color rgba=".8 .8 .8 1" />
+    </material>
+  </visual>
+</link>
+
+<joint name="lift_front_top" type="fixed">
+  <parent link="lift_mechanism_front"/>
+  <child link="lift_link"/>
+</joint>
+
+<joint name="lift_back_bottom_left" type="fixed">
+  <parent link="base_link"/>
+  <child link="lift_mechanism_back_left"/>
+  <origin xyz="0.1845 0.23 0.085" rpy="0 0 0"/><!--0.3395 - 0.155-->
+</joint>
+
+<link name="lift_mechanism_back_left">
+  <visual>
+    <origin xyz="0 0 0" rpy="0 -0.5 0" />
+    <geometry>
+      <box size="0.047 0.09 0.370" />
+    </geometry>
+    <material name="ral9010">
+      <color rgba=".8 .8 .8 1" />
+    </material>
+  </visual>
+</link>
+
+<joint name="lift_back_bottom_right" type="fixed">
+  <parent link="base_link"/>
+  <child link="lift_mechanism_back_right"/>
+  <origin xyz="0.1845 0.23 0.085" rpy="0 0 0"/><!--TODO-->
+</joint>
+
+<link name="lift_mechanism_back_right">
+  <visual>
+    <origin xyz="0 0 0" rpy="0 -0.5 0" />
+    <geometry>
+      <box size="0.047 0.09 0.370" />
+    </geometry>
+    <material name="ral9010">
+      <color rgba=".8 .8 .8 1" />
+    </material>
+  </visual>
+</link>
+
+<link name="lift_link">
+<visual>
+    <origin xyz="0 0 0.24" rpy="0 0 0" />
+    <geometry>
+       <box size="0.29 0.24 0.48" />
+       <!-- <mesh filename="file:///home/osch/github/rose/rose/src/rose21_description/rose21_urdf/meshes/lift_link.dae" scale="0.001 0.001 0.001"/> -->
+    </geometry>
+    <material name="ral9010">
+      <color rgba=".8 .8 .8 1" />
+    </material>
+  </visual>
+</link>
+
+<joint name="neck_pan_fix" type="fixed">
+  <parent link="lift_link"/>
+  <child link="neck_mount"/>
+</joint>
+
+<link name="neck_mount">
+<!--   <visual>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+          <box size="0.298 0.04 0.02" />
+    </geometry>
+    <material name="black">
+      <color rgba=".1 .1 .1 1" />
+    </material>
+  </visual> -->
+</link>
+
+<joint name="neck_pan_joint" type="fixed">
+  <parent link="neck_mount"/>
+  <child link="neck_pan"/>
+</joint>
+
+<link name="neck_pan">
+  <visual>
+    <origin xyz="0.149 0 0" rpy="0 0 0" />
+    <geometry>
+      <box size="0.298 0.04 0.02" />
+    </geometry>
+    <material name="black">
+      <color rgba=".1 .1 .1 1" />
+    </material>
+  </visual>
+</link>
+
+<joint name="link0" type="fixed">
+  <parent link="neck_pan"/>
+  <child link="neck_tilt_mount"/>
+</joint>
+
+<link name="neck_tilt_mount">
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <box size="0 0 0" />
+    </geometry>
+    <material name="black">
+      <color rgba=".1 .1 .1 1" />
+    </material>
+  </visual>
+</link>
+
+<joint name="link1" type="fixed">
+  <parent link="neck_tilt_mount"/>
+  <child link="neck_tilt"/>
+</joint>
+
+<link name="neck_tilt">
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <box size="0 0 0" />
+    </geometry>
+    <material name="black">
+      <color rgba=".1 .1 .1 1" />
+    </material>
+  </visual>
+</link>
+
+<joint name="link2" type="fixed">
+  <parent link="neck_tilt"/>
+  <child link="camera_center_link"/>
+</joint>
+
+<link name="camera_center_link">
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <box size="0 0 0" />
+    </geometry>
+    <material name="black">
+      <color rgba=".1 .1 .1 1" />
+    </material>
+  </visual>
+</link>
+
+<joint name="link3" type="fixed">
+  <parent link="camera_center_link"/>
+  <child link="camera_link"/>
+</joint>
+
+<link name="camera_link">
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <box size="0.06 0.28 0.04" />
+    </geometry>
+    <material name="black">
+      <color rgba=".1 .1 .1 1" />
+    </material>
+  </visual>
+</link>
+
+<joint name="link4" type="fixed">
+  <parent link="camera_link"/>
+  <child link="camera_rgb_frame"/>
+</joint>
+
+<link name="camera_rgb_frame">
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <box size="0 0 0" />
+    </geometry>
+    <material name="black">
+      <color rgba=".1 .1 .1 1" />
+    </material>
+  </visual>
+</link>
+
+<joint name="link5" type="fixed">
+  <parent link="camera_rgb_frame"/>
+  <child link="camera_rgb_optical_frame"/>
+</joint> 
+
+<link name="camera_rgb_optical_frame">
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <box size="0 0 0" />
+    </geometry>
+    <material name="black">
+      <color rgba=".1 .1 .1 1" />
+    </material>
+  </visual>
+</link>
+
+<joint name="laser_fix_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="laser"/>
+  <origin xyx="0.435 0 0.186" rpy="0 0 0"/>
+</joint>
+
+<link name="laser">
+  <!--See https://www.hokuyo-aut.jp/02sensor/07scanner/ubg_04lx_f01.html-->
+  <visual>
+    <origin xyz="-0.0125 0 -0.0166" rpy="0 0 0" />
+    <geometry>
+      <box size="0.075 0.06 0.06" />
+    </geometry>
+    <material name="darkblue">
+      <color rgba="0.016 0.329 0.714 1" /> <!-- R: 69 G: 75 B: 101 -->
+    </material>
+  </visual>
+</link>
+</robot>
