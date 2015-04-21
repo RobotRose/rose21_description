@@ -3,7 +3,7 @@
 
   <xacro:include filename="$(find rose21_urdf)/common.xacro" />
   <xacro:include filename="$(find opteq_wheelunits_01)/urdf/wheel_unit_60mm_macro.xacro" />
-  <xacro:include filename="$(find mico_description)/urdf/mico_arm.urdf.xacro" />
+  <!-- <xacro:include filename="$(find mico_description)/urdf/mico_arm.urdf.xacro" /> -->
   <xacro:include filename="$(find kinect_description)/urdf/kinect.urdf.xacro" />
 
   <xacro:property name="base_size_x" value="0.76" />
@@ -20,9 +20,9 @@
   <xacro:property name="tray_pose_y" value="0.0" />
   <xacro:property name="tray_pose_z" value="0.10" />
 
-  <xacro:property name="mico_pose_x" value="0.08" />
-  <xacro:property name="mico_pose_y" value="0.17" /> <!-- 5cm from the side of the lift_link -->
-  <xacro:property name="mico_pose_z" value="0.14" />
+  <xacro:property name="mico_pose_x" value="0.087" /> <!-- 0.114 -->
+  <xacro:property name="mico_pose_y" value="0.169" /> <!-- 0.197 --> <!-- 5cm from the side of the lift_link -->
+  <xacro:property name="mico_pose_z" value="0.137" /> <!-- 0.094 -->
 
   <xacro:property name="wheel_front_x"    value="0.28" />
   <xacro:property name="wheel_back_x"     value="-0.305" />
@@ -65,13 +65,13 @@
 
   <xacro:property name="lift_rpy" value="0 0 0"/>
 
-  <xacro:property name="neck_tube_size_z" value="0.07" />
+  <xacro:property name="neck_tube_size_z" value="0.06" />
   <xacro:property name="neck_tube_diameter" value="0.03" />
 
   <xacro:property name="neck_pan_size_x" value="0.298" />
   <xacro:property name="neck_pan_size_y" value="0.04" />
   <xacro:property name="neck_pan_size_z" value="0.02" />
-  <xacro:property name="neck_pan_pose_x" value="-0.08" /> <!--relative to lift_link -->
+  <xacro:property name="neck_pan_pose_x" value="-0.075" /> <!--relative to lift_link -->
   <xacro:property name="neck_pan_pose_y" value="0.00" />
   <xacro:property name="neck_pan_pose_z" value="0.00" />
 
@@ -79,7 +79,7 @@
   <xacro:property name="neck_tilt_size_y" value="0.035" />
   <xacro:property name="neck_tilt_size_z" value="0.048" />
   <xacro:property name="neck_tilt_servo_center_z" value="0.033" />
-  <xacro:property name="neck_tilt_pose_x" value="0.28" /> <!--Distance between tilt axis and neck pan tube -->
+  <xacro:property name="neck_tilt_pose_x" value="0.278" /> <!--Distance between tilt axis and neck pan tube -->
   <xacro:property name="neck_tilt_pose_y" value="0.00" />
   <xacro:property name="neck_tilt_pose_z" value="0.115" /> <!--Height of the tilt axis from top of shoulders-->
   
@@ -249,8 +249,20 @@
   </link>
 
   <!-- ATTACH ARM -->
-  <xacro:mico_arm parent="lift_link" xyz="${mico_pose_x}  ${mico_pose_y}  ${mico_pose_z}" rpy="0 0 ${pi / 2}"/>
+  <!-- <xacro:mico_arm parent="lift_link" xyz="${mico_pose_x}  ${mico_pose_y}  ${mico_pose_z}" rpy="0 0 ${pi / 2}"/> -->
 
+  <joint name="mico_root_mount_joint" type="fixed">
+    <parent link="lift_link"/>
+    <child link="mico_root"/>
+    <origin xyz="${mico_pose_x}  ${mico_pose_y}  ${mico_pose_z}" rpy="0 0 ${pi / 2}"/>  
+  </joint>
+
+  <link name='mico_root'>
+    <xacro:default_box  xyz=  "0 0 0 " 
+                        rpy=  "0 0 0" 
+                        size= "0 0 0 "/>  
+    <xacro:default_inertial mass="666.0"/>
+  </link>
   <!-- START neck -->
 
   <!-- joint between lift_link and neck_pan -->
@@ -292,13 +304,7 @@
     <xacro:default_inertial mass="0.25"/>
   </link>
 
-  <!-- joint between neck_tilt and kinect-->
-<!--   <joint name="kinect_fix" type="fixed">
-    <parent link="neck_tilt"/>
-    <child link="kinect"/>
-    <axis xyz="0 1 0" />
-    <origin xyz="${kinect_pose_x} ${kinect_pose_y} ${kinect_pose_z}" rpy="0 0 0"/>  
-  </joint> -->
+
   <!-- END neck -->
 
   <!-- START kinect --> 
@@ -343,26 +349,26 @@
     <plugin name="NeckController" filename="libNeckController.so"/>
   </gazebo> -->
 
-
-    <joint name="link2" type="fixed">
+  <joint name="camera_joint" type="fixed">
       <parent link="neck_tilt"/>
       <child link="camera_center_link"/>
-      <origin xyz="0.03 0 0.07" rpy="0 0 0"/> <!-- Values obtained from neck_tf.cpp-->
-    </joint>
+      <origin xyz="0.0125 -0.05 ${0.0659 + 0.04}" rpy="0 0 0"/> <!-- Values obtained from neck_tf.cpp-->
+  </joint>
 
-    <link name="camera_center_link">
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <box size="0 0 0" />
-        </geometry>
-        <material name="black">
-          <color rgba=".1 .1 .1 1" />
-        </material>
-      </visual>
-    </link>
+  <link name="camera_center_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0 0 0" />
+      </geometry>
+      <material name="black">
+        <color rgba=".1 .1 .1 1" />
+      </material>
+    </visual>
+  </link>
 
   <xacro:kinect parent_frame="camera_center_link" xyz="0 0 0" rpy="0 0 0"/>
+  
 
     <!-- START Hokuyo -->
 
