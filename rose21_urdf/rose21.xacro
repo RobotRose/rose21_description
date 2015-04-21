@@ -3,7 +3,7 @@
 
   <xacro:include filename="$(find rose21_urdf)/common.xacro" />
   <xacro:include filename="$(find opteq_wheelunits_01)/urdf/wheel_unit_60mm_macro.xacro" />
-  <!-- <xacro:include filename="$(find mico_description)/urdf/mico_arm.urdf.xacro" /> -->
+  <xacro:include filename="$(find mico_description)/urdf/mico_arm.urdf.xacro" />
   <xacro:include filename="$(find kinect_description)/urdf/kinect.urdf.xacro" />
 
   <xacro:property name="base_size_x" value="0.76" />
@@ -249,13 +249,7 @@
   </link>
 
   <!-- ATTACH ARM -->
-  <!-- <xacro:mico_arm parent="lift_link" xyz="${mico_pose_x}  ${mico_pose_y}  ${mico_pose_z}" rpy="0 0 ${pi / 2}"/> -->
-
-  <joint name="mico_root_mount_joint" type="fixed">
-    <parent link="lift_link"/>
-    <child link="mico_root"/>
-    <origin xyz="${mico_pose_x}  ${mico_pose_y}  ${mico_pose_z}" rpy="0 0 ${pi / 2}"/>  
-  </joint>
+  <xacro:mico_arm parent="lift_link" xyz="${mico_pose_x}  ${mico_pose_y}  ${mico_pose_z}" rpy="0 0 ${pi / 2}"/>
 
   <!-- START neck -->
 
