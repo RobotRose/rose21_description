@@ -352,7 +352,7 @@
   <joint name="camera_joint" type="fixed">
       <parent link="neck_tilt"/>
       <child link="camera_center_link"/>
-      <origin xyz="0.0125 -0.05 ${0.0659 + 0.03}" rpy="0 0 0"/> <!-- Values obtained from neck_tf.cpp-->
+      <origin xyz="0.0125 -0.05 ${0.0659 + 0.04}" rpy="0 0 0"/> <!-- Values obtained from neck_tf.cpp-->
   </joint>
 
   <link name="camera_center_link">
