@@ -351,11 +351,11 @@
 
   <joint name="camera_joint" type="fixed">
       <parent link="neck_tilt"/>
-      <child link="camera_center_link"/>
-      <origin xyz="0.0125 0.00 0.0659" rpy="0 0 0"/> <!-- Values obtained from neck_tf.cpp-->
+      <child link="camera_link"/>
+      <origin xyz="0.0125 -0.05 0.0659" rpy="0 0 0"/> <!-- Values obtained from neck_tf.cpp-->
   </joint>
 
-  <link name="camera_center_link">
+  <link name="camera_link">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
@@ -367,7 +367,7 @@
     </visual>
   </link>
 
-  <xacro:kinect parent_frame="camera_center_link" xyz="0 0 0" rpy="0 0 0"/>
+  <xacro:kinect parent_frame="camera_link" xyz="0 0 0" rpy="0 0 0"/>
   
 
     <!-- START Hokuyo -->
