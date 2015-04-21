@@ -257,6 +257,12 @@
     <origin xyz="${mico_pose_x}  ${mico_pose_y}  ${mico_pose_z}" rpy="0 0 ${pi / 2}"/>  
   </joint>
 
+  <link name='mico_root'>
+    <xacro:default_box  xyz=  "0 0 0 " 
+                        rpy=  "0 0 0" 
+                        size= "0 0 0 "/>  
+    <xacro:default_inertial mass="666.0"/>
+  </link>
   <!-- START neck -->
 
   <!-- joint between lift_link and neck_pan -->
