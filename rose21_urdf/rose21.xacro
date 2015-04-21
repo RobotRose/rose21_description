@@ -65,7 +65,7 @@
 
   <xacro:property name="lift_rpy" value="0 0 0"/>
 
-  <xacro:property name="neck_tube_size_z" value="0.07" />
+  <xacro:property name="neck_tube_size_z" value="0.06" />
   <xacro:property name="neck_tube_diameter" value="0.03" />
 
   <xacro:property name="neck_pan_size_x" value="0.298" />
@@ -79,7 +79,7 @@
   <xacro:property name="neck_tilt_size_y" value="0.035" />
   <xacro:property name="neck_tilt_size_z" value="0.048" />
   <xacro:property name="neck_tilt_servo_center_z" value="0.033" />
-  <xacro:property name="neck_tilt_pose_x" value="0.28" /> <!--Distance between tilt axis and neck pan tube -->
+  <xacro:property name="neck_tilt_pose_x" value="0.284" /> <!--Distance between tilt axis and neck pan tube -->
   <xacro:property name="neck_tilt_pose_y" value="0.00" />
   <xacro:property name="neck_tilt_pose_z" value="0.115" /> <!--Height of the tilt axis from top of shoulders-->
   
